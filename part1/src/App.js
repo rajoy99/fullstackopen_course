@@ -67,47 +67,37 @@ const Total = (props) => {
 
 
 const App = () => {
-  const course = 'Half Stack application development'
-  const rang=3
-  const parts = [
-    {
-      name: 'Fundamentals of React',
-      exercises: 10
-    },
-    {
-      name: 'Using props to pass data',
-      exercises: 7
-    },
-    {
-      name: 'State of a component',
-      exercises: 14
-    }
-  ]
-
-  var syn=new Array(3)
-  for(let i=0;i<rang;i+=1){
-    syn[i]=<p>{parts[i].name} {parts[i].exercises}</p>
-
+  const course = {
+    name: 'Half Stack application development',
+    parts: [
+      {
+        name: 'Fundamentals of React',
+        exercises: 10
+      },
+      {
+        name: 'Using props to pass data',
+        exercises: 7
+      },
+      {
+        name: 'State of a component',
+        exercises: 14
+      }
+    ]
   }
 
+ var container= new Array(3)
 
-  console.log(syn)
+  for(let i=0;i<3;i++){
+    container[i]=<p> {course.parts[i].name} {course.parts[i].exercises} </p>
+  }
+ 
   return (
     <div>
-      <h1> {course}</h1>
-      {syn}
-
+      <h1>{course.name}</h1>
+      {container}
     </div>
   )
 }
-
-
-
-
-
-
-
-
 
 
 
