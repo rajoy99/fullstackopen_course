@@ -11,6 +11,15 @@ const App = () => {
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients'
   ]
    
+
+
+  const points = { 0: 1, 1: 3, 2: 4, 3: 2 }
+
+  const copy = { ...points }
+// increment the property 2 value by one
+  copy[2] += 1     
+
+
   const [selected, setSelected] = useState(0)
 
   function getRandomInt(min, max) {
@@ -26,6 +35,11 @@ const App = () => {
 
   return (
     <div>
+      <button onClick={doselect}>
+
+          vote
+
+      </button>
       <button onClick={doselect}>
 
         next anecdote
