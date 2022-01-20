@@ -13,20 +13,23 @@ const App = () => {
    
 
 
-  const points = { 0: 1, 1: 3, 2: 4, 3: 2 }
-
-  const copy = { ...points }
-// increment the property 2 value by one
-  copy[2] += 1     
-
-
   const [selected, setSelected] = useState(0)
+  const [votes,setVote] = useState([0,0,0,0,0,0])
 
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
   }
+
+  const votit = () => {
+    const copy=[...votes]
+    copy[selected]+=1 
+    setVote(copy)
+
+}
+
+
   
 
   const doselect = () =>{setSelected(getRandomInt(0,6))
@@ -35,7 +38,7 @@ const App = () => {
 
   return (
     <div>
-      <button onClick={doselect}>
+      <button onClick={votit}>
 
           vote
 
@@ -46,7 +49,10 @@ const App = () => {
 
       </button>
       <br></br>
+
       {anecdotes[selected]}
+      <br></br>
+      has {votes[selected]} votes 
     </div>
   )
 }
