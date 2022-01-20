@@ -12,6 +12,17 @@ const Button = (props) => {
 
 const Statistics = (props) => {
 
+  if(props.good+props.bad+props.neutral==0){
+    return(
+      <div>
+        No Feedback Given
+      </div>
+    )
+  }
+
+
+
+
   return(
     <div>
       Statistics
