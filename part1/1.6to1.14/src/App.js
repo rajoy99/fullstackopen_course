@@ -1,12 +1,13 @@
 
 import React, { useState } from 'react'
 
-const Button = (props) => (
-  <button onClick={props.handleClick}>
-    {props.text}
-  </button>
-)
-
+const Button = (props) => {
+  return (
+    <button onClick={props.handleclick}>
+      {props.text}
+    </button>
+  )
+}
 
 const App = () => {
   // save clicks of each button to its own state
@@ -16,15 +17,37 @@ const App = () => {
 
 
 
+  const increasegood = () => {setGood(good+1)}
+  const increasebad = () => {setBad(bad+1)}
+  const increasenut = () => {setNeutral(neutral+1)}
+
+
   return (
     <div>
       Give Feedback
       <br></br>
-      <Button handleClick={setGood(good + 1)} text="Good" />
+
+
+      <Button
+        handleclick={increasegood}
+        text='good'
+      />
+      <Button
+        handleclick={increasenut}
+        text='neutral'
+      />
+      <Button
+        handleclick={increasebad}
+        text='bad'
+      />
       <br></br>
       Statistics
       <br></br>
-      {good}
+      good {good}
+      <br></br>
+      neutral {neutral}
+      <br></br>
+      bad {bad}
 
     </div>
   )
