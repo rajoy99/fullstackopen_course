@@ -14,7 +14,12 @@ const StatisticLine = (props) => {
 
     return(
       <div>
-        {props.text}          {props.value}
+        <table> 
+          <tr>
+          <td>{props.text}   </td>        <td>{props.value}</td>
+          </tr>
+       
+        </table>
        </div>
     )
 
@@ -35,18 +40,30 @@ const Statistics = (props) => {
 
   return(
     <div>
-      Statistics
+      <h2>Statistics</h2>
+      
 
       <StatisticLine text="good" value ={props.good} />
       <StatisticLine text="neutral" value ={props.neutral} />
       <StatisticLine text="bad" value ={props.bad} />
 
-      all {props.good+props.bad+props.neutral}
-      
-      <br></br>
-      average {(props.good-props.bad)/(props.good+props.bad+props.neutral)}
-      <br></br>
-      percentage {props.good*100/(props.good+props.bad+props.neutral)} %
+      <table>
+      <tr>
+      <td>all </td>  <td> {props.good+props.bad+props.neutral} </td>
+      </tr>
+      <tr>
+      <td>average  </td>  <td> {(props.good-props.bad)/(props.good+props.bad+props.neutral)} </td>
+      </tr>
+      <tr>
+      <td> percentage </td>  <td>  {props.good*100/(props.good+props.bad+props.neutral)} % </td>
+      </tr>
+
+    
+
+
+      </table>
+
+
 
     </div>
   )
@@ -68,7 +85,7 @@ const App = () => {
 
   return (
     <div>
-      Give Feedback
+      <h2>      Give Feedback    </h2>
       <br></br>
 
 
