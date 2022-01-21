@@ -18,9 +18,20 @@ const App = () => {
     const nameObject = {
       name: newName,
       date: new Date().toISOString(),
+      
     }
-    setPersons(persons.concat(nameObject))
-    setNewName('')
+    var data = persons.find(function(ele) {
+      return ele.name === newName;
+  });
+
+    if (data) {
+      alert(newName+"  is already added to phonebook");
+    }
+    else{
+      setPersons(persons.concat(nameObject))
+      setNewName('')
+    }
+    
   }
 
 
