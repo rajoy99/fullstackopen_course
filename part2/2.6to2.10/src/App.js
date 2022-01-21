@@ -26,8 +26,7 @@ const App = () => {
     event.preventDefault()
     const nameObject = {
       name: newName,
-      number: newNumber,
-      date: new Date().toISOString(),
+      number: newNumber
       
     }
     var data = persons.find(function(ele) {
@@ -40,6 +39,7 @@ const App = () => {
     else{
       setPersons(persons.concat(nameObject))
       setNewName('')
+      setNewNumber('')
     }
     
   }
@@ -67,7 +67,7 @@ const App = () => {
         </div>
       </form>
       <h2>Numbers</h2>
-      {persons.map((x,index)=><p key={index}>{x.name}</p>)}
+      {persons.map((x,index)=><p key={index}>{x.name}     {x.number}</p>)}
       
     </div>
   )
