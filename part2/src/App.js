@@ -4,11 +4,13 @@ import React from 'react'
 
 const Course = (props) =>{
 
+  
 
   return(
    <div>
      <h1>{props.course.name}</h1>
       {props.course.parts.map(val=><p>{val.name} {val.exercises}</p>)}
+      total of {props.value} courses
    </div>
   )
 
@@ -16,6 +18,8 @@ const Course = (props) =>{
 
 
 const App = () => {
+
+  
   const course = {
     id: 1,
     name: 'Half Stack application development',
@@ -38,7 +42,14 @@ const App = () => {
     ]
   }
 
-  return <Course course={course} />
+  let valued=0
+  for(let i=0;i<course.parts.length;i++){
+    valued+=course.parts[i].exercises
+  }
+
+  let totalvalue=course.parts.reduce(function (acc, obj) { return acc + obj.exercises; }, 0)
+
+  return <Course course={course} value={totalvalue} />
 }
 
 export default App
