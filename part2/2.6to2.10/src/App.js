@@ -1,6 +1,30 @@
 import React, { useState } from 'react'
 
+const PersonForm =(props) =>{
 
+  return(
+    <div>
+      <form onSubmit={props.addName}>
+        <div>
+          name: <input 
+          value={props.newName}
+          onChange={props.handleNameChange}/>
+        </div>
+        <div>
+          number: <input
+          value={props.newNumber}
+          onChange={props.handleNumberChange}
+          />
+          
+          </div>
+
+        <div>
+          <button type="submit">add</button>
+        </div>
+      </form>
+    </div>
+  )
+}
 
 const Persons = (props) =>{
 
@@ -64,24 +88,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={addName}>
-        <div>
-          name: <input 
-          value={newName}
-          onChange={handleNameChange}/>
-        </div>
-        <div>
-          number: <input
-          value={newNumber}
-          onChange={handleNumberChange}
-          />
-          
-          </div>
-
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
+      <PersonForm addName={addName} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange} newName={newName} newNumber={newNumber} />
       <h2>Numbers</h2>
       
       <Persons persons={persons}/>
