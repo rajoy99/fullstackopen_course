@@ -42,11 +42,6 @@ const App = () => {
     ]
   }
 
-  let valued=0
-  for(let i=0;i<course.parts.length;i++){
-    valued+=course.parts[i].exercises
-  }
-
   let totalvalue=course.parts.reduce(function (acc, obj) { return acc + obj.exercises; }, 0)
 
   return <Course course={course} value={totalvalue} />
