@@ -9,6 +9,9 @@ console.log(promise)
 const promise2 = axios.get('http://localhost:3001/foobar')
 console.log(promise2)
 
+promise.then(response => {
+  console.log(response)
+})
 
 ReactDOM.render(
   <App/>,
