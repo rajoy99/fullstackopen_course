@@ -7,7 +7,7 @@ const App = (props) => {
 
   return(
     <div>
-      {props.notes}
+      {props.notes.map(value=><p>{value.content}</p>)}
     </div>
   )
 
