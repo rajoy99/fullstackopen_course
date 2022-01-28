@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Note from './components/Note'
 import axios from 'axios'
+import Search from "./components/Search"
 
 const App = () => {
   const [persons, setPersons] = useState([])
@@ -20,6 +21,7 @@ const App = () => {
 
   return (
     <div>
+      <Search/>
       <h1>Notes</h1>
   
       <ul>
