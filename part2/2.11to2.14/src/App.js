@@ -56,9 +56,10 @@ const App = () => {
   //   </div>
   // )
 
+  console.log(countries[4].name.common)
   return(
     <div>
-      {val=>{countries[0].name}}
+      {countries[0].name.common}
     </div>
   )
 
