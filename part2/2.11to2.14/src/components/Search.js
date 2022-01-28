@@ -1,36 +1,20 @@
-import React from 'react';
+import React from "react";
 
+const Search = ({ searchHandler }) => {
+  const handleSearchInputChange = e => {
+    searchHandler(e.target.value);
+  };
 
-import '../Search.css';
+  return (
+    <form className="search">
+      <input
+        onChange={handleSearchInputChange}
+        type="text"
+        placeholder="Search Name..."
+      />
+      <i className="fas fa-search" type="submit" value="SEARCH"></i>
+    </form>
+  );
+};
 
-class Search extends  React.Component {
-	constructor( props ) {
-		super( props );
-		this.state = {
-			query: '',
-                        results: {},
-                        loading: false,
-                        message: '',
-		};
-	}
-	render() {
-		return (
-			<div className="container">
-				{/*Heading*/}
-				<h2 className="heading">Live Search: React Application</h2>
-				{/*Search Input*/}
-				<label className="search-label" htmlFor="search-input">
-					<input
-						type="text"
-						value=""
-						id="search-input"
-						placeholder="Search..."
-					/>
-					<i className="fa fa-search search-icon"/>
-				</label>
-				
-			</div>
-			)
-	}
-}
 export default Search;

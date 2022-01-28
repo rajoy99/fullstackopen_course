@@ -4,34 +4,64 @@ import axios from 'axios'
 import Search from "./components/Search"
 
 const App = () => {
-  const [persons, setPersons] = useState([])
+  const [countries, setcountries] = useState([])
   // const [newNote, setNewNote] = useState('')
   // const [showAll, setShowAll] = useState(false)
+  const [searchValue, setSearchValue] = useState("");
+  // const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    console.log('effect')
     axios
-      .get('http://localhost:3001/persons')
-      .then(response => {
-        console.log('promise fulfilled')
-        setPersons(response.data)
+      .get(
+        "https://restcountries.com/v3.1/all"
+      )
+      .then(res => {
+        console.log(res);
+        setcountries(res.data);
       })
-  }, [])
-  console.log('render',persons.length, 'notes')
+      .catch(error => {
+        console.log(error);
+      });
+  }, []);
 
-  return (
-    <div>
-      <Search/>
-      <h1>Notes</h1>
+  // const searchHandler = value => {
+  //   setSearchValue(value);
+  // };
+
+  // let updateUsers = countries.filter(item => {
+  //   return item.name.toLowerCase().includes(searchValue);
+  // }, []);
+
   
-      <ul>
-        {persons.map(person => 
-            <li key={person.id}>  {person.name} </li>
-        )}
-      </ul>
 
+  // const handleOnInputChange = (event) => {
+  //   const query = event.target.value;
+  //             this.setState({ query, loading: true, message: ''  } );
+  // };
+
+  // console.log('render  ',countries.length, 'notes')
+
+  // return (
+  //   <div >
+  //     <h5>Shift </h5>
+  //     <Search searchHandler={searchHandler} />
+  //     <ul>
+  //       {(searchValue === '' ? countries : updateUsers).map(country => (
+  //         <ol key={country.name}>
+  //           <br />
+  //           {country.name} <br />
+  //         </ol>
+  //       ))}
+  //     </ul>
+  //   </div>
+  // )
+
+  return(
+    <div>
+      {val=>{countries[0].name}}
     </div>
   )
+
 }
 
 export default App
