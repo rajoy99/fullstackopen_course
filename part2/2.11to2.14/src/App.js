@@ -5,63 +5,18 @@ import Search from "./components/Search"
 
 const App = () => {
   const [countries, setcountries] = useState([])
-  // const [newNote, setNewNote] = useState('')
-  // const [showAll, setShowAll] = useState(false)
-  const [searchValue, setSearchValue] = useState("");
-  // const [users, setUsers] = useState([]);
+  const [searchName,setsearchName] = useState('')
 
-  useEffect(() => {
+  const hook = () =>{
     axios
-      .get(
-        "https://restcountries.com/v3.1/all"
-      )
-      .then(res => {
-        console.log(res);
-        setcountries(res.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }, []);
+    .get("https://restcountries.com/v3.1/all")
+    .then(response=>setcountries(response.data))
 
-  // const searchHandler = value => {
-  //   setSearchValue(value);
-  // };
+  }
 
-  // let updateUsers = countries.filter(item => {
-  //   return item.name.toLowerCase().includes(searchValue);
-  // }, []);
+  useEffect(hook,[])
 
-  
-
-  // const handleOnInputChange = (event) => {
-  //   const query = event.target.value;
-  //             this.setState({ query, loading: true, message: ''  } );
-  // };
-
-  // console.log('render  ',countries.length, 'notes')
-
-  // return (
-  //   <div >
-  //     <h5>Shift </h5>
-  //     <Search searchHandler={searchHandler} />
-  //     <ul>
-  //       {(searchValue === '' ? countries : updateUsers).map(country => (
-  //         <ol key={country.name}>
-  //           <br />
-  //           {country.name} <br />
-  //         </ol>
-  //       ))}
-  //     </ul>
-  //   </div>
-  // )
-
-  console.log(countries[4].name.common)
-  return(
-    <div>
-      {countries[0].name.common}
-    </div>
-  )
+  const countries_to_show= countries.filter(country=>country.name.toLowerCase())
 
 }
 
