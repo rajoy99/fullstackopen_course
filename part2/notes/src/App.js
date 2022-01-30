@@ -39,6 +39,12 @@ const App = () => {
     setNewNote(event.target.value)
   }
 
+  const toggleImportanceOf = (id) => {
+    console.log('importance of ' + id + ' needs to be toggled')
+  }
+
+
+
   const notesToShow = showAll
   ? notes
   : notes.filter(note => note.important)
@@ -50,19 +56,17 @@ const App = () => {
         <button onClick={() => setShowAll(!showAll)}>
           show {showAll ? 'important' : 'all' }
         </button>
-      </div>   
+      </div>      
       <ul>
-        {notesToShow.map(note => 
-            <Note key={note.id} note={note} />
+        {notesToShow.map((note, i) => 
+          <Note
+            key={i}
+            note={note} 
+            toggleImportance={() => toggleImportanceOf(note.id)}
+          />
         )}
       </ul>
-      <form onSubmit={addNote}>
-        <input
-          value={newNote}
-          onChange={handleNoteChange}
-        />
-        <button type="submit">save</button>
-      </form>  
+   
     </div>
   )
 }
