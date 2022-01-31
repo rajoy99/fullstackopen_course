@@ -4,7 +4,9 @@ const Person = (props) =>{
 
     return(
         <div>
-            {props.Person.map(val=>{<p>val.name</p>})}
+            <li key={props.person.id}>{props.person.name}   Number:   {props.person.number}</li>
         </div>
     )
 }
+
+export default Person
