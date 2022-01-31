@@ -58,14 +58,18 @@ const App = () => {
         )}
       </ul>
       <form onSubmit={addPerson}>
+        <label> Enter Name: </label>
         <input
           value={newPerson}
           onChange={handlePersonChange}
         />
+        <br></br>
+        <label>Enter New Number : </label>
         <input
           value={newNumber}
           onChange={handleNumberChange}
         />
+        <br></br>
         <button type="submit">save</button>
       </form>  
     </div>
