@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Note from './components/Note'
 import axios from 'axios'
+import noteService from './services/notes'
+
+
 
 const App = () => {
   const [notes, setNotes] = useState([])
@@ -8,13 +11,11 @@ const App = () => {
   const [showAll, setShowAll] = useState(false)
 
   useEffect(() => {
-    console.log('effect')
-    axios
-      .get('http://localhost:3001/notes')
-      .then(response => {
-        console.log('promise fulfilled')
-        setNotes(response.data)
-      })
+    noteService
+    .getAll()
+    .then(response => {
+      setNotes(response.data)
+    })
   }, [])
   console.log('render', notes.length, 'notes')
 
