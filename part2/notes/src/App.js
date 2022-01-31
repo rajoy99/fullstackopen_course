@@ -27,12 +27,12 @@ const App = () => {
       important: Math.random() > 0.5,
     }
 
-    axios
-    .post('http://localhost:3001/notes', noteObject)
-    .then(response => {
-      setNotes(notes.concat(response.data))
-      setNewNote('')
-    })
+    noteService
+      .create(noteObject)
+      .then(response => {
+        setNotes(notes.concat(response.data))
+        setNewNote('')
+      })
   }
 
   const handleNoteChange = (event) => {
@@ -45,9 +45,12 @@ const App = () => {
     const note = notes.find(n => n.id === id)
     const changedNote = { ...note, important: !note.important }
   
-    axios.put(url, changedNote).then(response => {
+    noteService
+    .update(id, changedNote)
+    .then(response => {
       setNotes(notes.map(note => note.id !== id ? note : response.data))
     })
+
   }
 
 
