@@ -26,9 +26,10 @@ const App = () => {
       name: newPerson,
       number:newNumber
     }
-
-    if(persons.some(e => e.name === 'newPerson')){
+    console.log(persons)
+    if(persons.some(e => e.name === newPerson)){
       alert("This name already exists in the phonebook")
+      console.log('Exists')
       setNewPerson('')
     }
     else{
