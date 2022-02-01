@@ -4,6 +4,27 @@ import personservice from './services/persons'
 import Person from './components/Person'
 import { eventWrapper } from '@testing-library/user-event/dist/utils';
 
+
+
+
+const Footer = () => {
+  const footerStyle = {
+    color: 'green',
+    fontStyle: 'italic',
+    fontSize: 16
+  }
+  return (
+    <div style={footerStyle}>
+      <br />
+      <em>Note app, Department of Computer Science, University of Helsinki 2021</em>
+    </div>
+  )
+}
+
+
+
+
+
 const Notification = ({ message }) => {
   if (message === null) {
     return null
@@ -122,7 +143,8 @@ const App = () => {
         <br></br>
         <button type="submit">save</button>
       </form>  
-      </div>   
+      </div> 
+      <Footer />  
     </div>
   )
 }
