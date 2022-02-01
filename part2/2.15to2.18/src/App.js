@@ -2,6 +2,7 @@ import './App.css';
 import { useState,useEffect } from 'react';
 import personservice from './services/persons'
 import Person from './components/Person'
+import { eventWrapper } from '@testing-library/user-event/dist/utils';
 
 
 const App = () => {
@@ -35,6 +36,20 @@ const App = () => {
       })
   }
 
+  const deletePerson = (event) =>{
+    event.preventDefault()
+    const id=event.target.value
+    const personname= persons.find(person=>person.id==id).name
+
+
+    personservice.
+    remove(id)
+    .then(response => 
+      {
+        setpersons(persons.filter(person=>person.id!=id))
+      })
+  }
+
 
   const handlePersonChange = (event) => {
     console.log(event.target.value)
@@ -54,8 +69,9 @@ const App = () => {
       </div>   
       <ol>
         {persons.map(P => 
-            <Person person={P}/>
+            <Person person={P} />
         )}
+
       </ol>
       <form onSubmit={addPerson}>
         <label> Enter Name: </label>
