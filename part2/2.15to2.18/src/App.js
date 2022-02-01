@@ -52,11 +52,11 @@ const App = () => {
       <h1>persons</h1>
       <div>
       </div>   
-      <ul>
+      <ol>
         {persons.map(P => 
             <Person person={P}/>
         )}
-      </ul>
+      </ol>
       <form onSubmit={addPerson}>
         <label> Enter Name: </label>
         <input
