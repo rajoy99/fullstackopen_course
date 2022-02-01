@@ -69,7 +69,7 @@ const App = () => {
       </div>   
       <ol>
         {persons.map(P => 
-            <Person person={P} />
+            <Person person={P} deletePerson={deletePerson} />
         )}
 
       </ol>
