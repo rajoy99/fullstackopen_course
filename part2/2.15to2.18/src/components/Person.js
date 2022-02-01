@@ -3,8 +3,8 @@ const Person = (props) =>{
 
     return(
         <div>
-            <li key={props.person.id}>{props.person.name}   Number:   {props.person.number}</li>
-            <button type="button" value={props.person.id} onClick={props.deletePerson}>
+            <li className='note' key={props.person.id}>{props.person.name}   Number:   {props.person.number}</li>
+            <button className='delete' type="button" value={props.person.id} onClick={props.deletePerson}>
                 DELETE</button>
         </div>
     )

@@ -71,12 +71,19 @@ const App = () => {
   }
 
 
+
+
+
+
+
+
+
+
   return (
     <div>
+      <h1>PhoneBook</h1>
+      <div align='center'>
 
-      <h1>persons</h1>
-      <div>
-      </div>   
       <ol>
         {persons.map(P => 
             <Person person={P} deletePerson={deletePerson} />
@@ -98,7 +105,7 @@ const App = () => {
         <br></br>
         <button type="submit">save</button>
       </form>  
-      
+      </div>   
     </div>
   )
 }
