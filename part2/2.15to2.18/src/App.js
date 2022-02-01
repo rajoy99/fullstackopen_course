@@ -21,6 +21,22 @@ const Footer = () => {
   )
 }
 
+const Notewatcher = (props) =>{
+
+  const st={
+    backgroundColor:'yellow',
+    color:'green',
+    fontSize:17
+
+  }
+  return (
+    <div style={st}>
+      
+    <h1>{props.additionNote}</h1>
+    
+    </div>
+  )
+}
 
 
 
@@ -43,6 +59,7 @@ const App = () => {
   const [newPerson, setNewPerson] = useState('')
   const [newNumber,setNewNumber] = useState('')
   const [errorMessage, setErrorMessage] = useState(null)
+  const [additionNote,setadditionNote]=useState(null)
   
 
 
@@ -76,6 +93,10 @@ const App = () => {
         setpersons(persons.concat(returnedPerson))
         setNewPerson('')
         setNewNumber('')
+        setadditionNote("A New person Added")
+        setTimeout(() => {
+          setadditionNote(null)
+        }, 2000);
       })
     }
 
@@ -121,6 +142,8 @@ const App = () => {
       <h1>PhoneBook</h1>
       <Notification message={errorMessage} />
       <div align='center'>
+
+     <Notewatcher additionNote={additionNote}/>
 
       <ol>
         {persons.map(P => 
