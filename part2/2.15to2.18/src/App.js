@@ -9,9 +9,9 @@ import { eventWrapper } from '@testing-library/user-event/dist/utils';
 
 const Footer = () => {
   const footerStyle = {
-    color: 'green',
+    color: 'violet',
     fontStyle: 'italic',
-    fontSize: 16
+    fontSize: 24
   }
   return (
     <div style={footerStyle}>
