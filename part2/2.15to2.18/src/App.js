@@ -4,12 +4,25 @@ import personservice from './services/persons'
 import Person from './components/Person'
 import { eventWrapper } from '@testing-library/user-event/dist/utils';
 
+const Notification = ({ message }) => {
+  if (message === null) {
+    return null
+  }
+
+  return (
+    <div className='error'>
+      {message}
+    </div>
+  )
+}
 
 const App = () => {
 
   const [persons, setpersons] = useState([])
   const [newPerson, setNewPerson] = useState('')
   const [newNumber,setNewNumber] = useState('')
+  const [errorMessage, setErrorMessage] = useState(null)
+  
 
 
   useEffect(() => {
@@ -28,9 +41,12 @@ const App = () => {
     }
     console.log(persons)
     if(persons.some(e => e.name === newPerson)){
-      alert("This name already exists in the phonebook")
+      setErrorMessage("This name already exists in the phonebook")
       console.log('Exists')
       setNewPerson('')
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 5000)
     }
     else{
       personservice
@@ -82,6 +98,7 @@ const App = () => {
   return (
     <div>
       <h1>PhoneBook</h1>
+      <Notification message={errorMessage} />
       <div align='center'>
 
       <ol>
