@@ -27,13 +27,21 @@ const App = () => {
       number:newNumber
     }
 
-    personservice
+    if(persons.some(e => e.name === 'newPerson')){
+      alert("This name already exists in the phonebook")
+      setNewPerson('')
+    }
+    else{
+      personservice
       .create(PersonObject)
         .then(returnedPerson => {
         setpersons(persons.concat(returnedPerson))
         setNewPerson('')
         setNewNumber('')
       })
+    }
+
+
   }
 
   const deletePerson = (event) =>{
@@ -64,6 +72,7 @@ const App = () => {
 
   return (
     <div>
+
       <h1>persons</h1>
       <div>
       </div>   
@@ -88,6 +97,7 @@ const App = () => {
         <br></br>
         <button type="submit">save</button>
       </form>  
+      
     </div>
   )
 }
