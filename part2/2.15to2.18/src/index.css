@@ -17,6 +17,17 @@ h1 {
   color: green;
   font-style: italic;
 }
+
+ul {
+  font-size: 0; /* Eliminate spacing between inline block elements */
+  text-align: justify;
+  width: 100%;
+  background: #cacaca;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 li {
   color: grey;
   padding-top: 3px;
@@ -30,7 +41,7 @@ li {
 }
 
 .delete {
-  color: rgb(230, 255, 4);
+  background-color: rgb(230, 255, 4);
   padding-top: 5px;
   font-size: 15px;
 }
