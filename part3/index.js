@@ -3,6 +3,8 @@ const http = require('http')
 const express = require('express')
 const app = express()
 
+app.use(express.json())
+
 let notes = [
   {
     id: 1,
@@ -24,6 +26,12 @@ let notes = [
   }
 ]
 
+app.post('/api/notes', (request, response) => {
+  const note = request.body
+  console.log(note)
+  console.log(typeof note)
+  response.json(note)
+})
 
 app.get('/api/notes/:id', (request, response) => {
   const id = Number(request.params.id)
