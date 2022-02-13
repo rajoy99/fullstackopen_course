@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import Note from './components/Note'
 import noteService from './services/notes'
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import { Button } from '@mui/material';
+import './App.css'
 
 const App = () => {
 
@@ -59,14 +66,16 @@ const App = () => {
   : notes.filter(note => note.important==true)
 
   return (
-    <div>
-      <h1>Notes</h1>
+    <div className='maindiv'>
+      <h1 align='center'>Note :: Drop <img src="droplogo.png" alt="logo" height={2} width={2}/> </h1> 
+
+     
       <div>
-        <button onClick={() => setShowAll(!showAll)}>
+        <Button onClick={() => setShowAll(!showAll)}>
           show {showAll ? 'important' : 'all' }
-        </button>
+        </Button>
       </div>   
-      <ul>
+      <List>
         {notesToShow.map(note => 
             <Note
               key={note.id}
@@ -74,16 +83,19 @@ const App = () => {
               toggleImportance={() => toggleImportanceOf(note.id)}
             />
         )}
-      </ul>
-      <form onSubmit={addNote}>
+      </List>
+      <form onSubmit={addNote} align='center'>
         <input
           value={newNote}
           onChange={handleNoteChange}
         />
-        <button type="submit">save</button>
+        <br></br>
+      <Button type='submit' variant="contained" color="success" sx={{marginTop:3}}>
+        SUBMIT
+      </Button>
       </form>  
     </div>
-  )
+  );
 }
 
 export default App
