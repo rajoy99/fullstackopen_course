@@ -67,7 +67,7 @@ const App = () => {
 
   return (
     <div className='maindiv'>
-      <h1 align='center'>Note :: Drop <img src="droplogo.png" alt="logo" height={2} width={2}/> </h1> 
+      <h1 align='center'>Note :: Drop <img src="droplogo.png" /> </h1> 
 
      
       <div>
@@ -90,7 +90,7 @@ const App = () => {
           onChange={handleNoteChange}
         />
         <br></br>
-      <Button type='submit' variant="contained" color="success" sx={{marginTop:3}}>
+      <Button type='submit' variant="contained"  sx={{marginTop:3,backgroundColor:'#0566b5'}}>
         SUBMIT
       </Button>
       </form>  

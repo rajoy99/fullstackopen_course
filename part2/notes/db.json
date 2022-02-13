@@ -35,6 +35,12 @@
       "date": "2022-02-13T06:08:32.744Z",
       "important": true,
       "id": 6
+    },
+    {
+      "content": "Green and White are my favorite colors ",
+      "date": "2022-02-13T06:11:18.398Z",
+      "important": false,
+      "id": 7
     }
   ]
 }
