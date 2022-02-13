@@ -65,8 +65,8 @@ const App = () => {
   }
 
   const notesToShow = showAll
-  ? notes
-  : notes.filter(note => note.important==true)
+    ? notes
+    : notes.filter((note) => note.important == true);
 
   return (
     <div className="maindiv">
