@@ -20,7 +20,7 @@ const Note = ({ note, toggleImportance }) => {
   <ListItemIcon>
   </ListItemIcon>
   <ListItemText primary={note.content} />
-  <Button variant="contained" color="success" onClick={toggleImportance} sx={{backgroundColor:'black'}}>
+  <Button variant="contained" color="success" onClick={toggleImportance} sx={{backgroundColor:'#04b1d4'}}>
         Change Importance
   </Button>
 </ListItemButton>

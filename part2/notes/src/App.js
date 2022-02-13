@@ -15,6 +15,9 @@ const App = () => {
   const [newNote, setNewNote] = useState('')
   const [showAll, setShowAll] = useState(false)
 
+
+  
+
   useEffect(() => {
     noteService
       .getAll()
@@ -66,34 +69,34 @@ const App = () => {
   : notes.filter(note => note.important==true)
 
   return (
-    <div className='maindiv'>
-      <h1 align='center'>Note :: Drop <img src="droplogo.png" /> </h1> 
+    <div className="maindiv">
+      <h1 align='center'> Note :: Drop 💧 </h1>
 
-     
       <div>
         <Button onClick={() => setShowAll(!showAll)}>
-          show {showAll ? 'important' : 'all' }
+          show {showAll ? "important" : "all"}
         </Button>
-      </div>   
+      </div>
       <List>
-        {notesToShow.map(note => 
-            <Note
-              key={note.id}
-              note={note} 
-              toggleImportance={() => toggleImportanceOf(note.id)}
-            />
-        )}
+        {notesToShow.map((note) => (
+          <Note
+            key={note.id}
+            note={note}
+            toggleImportance={() => toggleImportanceOf(note.id)}
+          />
+        ))}
       </List>
-      <form onSubmit={addNote} align='center'>
-        <input
-          value={newNote}
-          onChange={handleNoteChange}
-        />
+      <form onSubmit={addNote} align="center">
+        <input value={newNote} onChange={handleNoteChange} />
         <br></br>
-      <Button type='submit' variant="contained"  sx={{marginTop:3,backgroundColor:'#0566b5'}}>
-        SUBMIT
-      </Button>
-      </form>  
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{ marginTop: 3, backgroundColor: "#04b1d4" }}
+        >
+          SUBMIT
+        </Button>
+      </form>
     </div>
   );
 }
